@@ -1,0 +1,37 @@
+version: "3"
+services:
+  mongodb:
+    image: mongo:latest
+    container_name: "mongodb"
+    volumes:
+      - ./data/db:/data/db
+    ports:
+      - 27017:27017
+    command: mongod --logpath=/dev/null
+
+
+#  mysql:
+#    container_name: mysql
+#    # let's grab from mysql 5.7 image
+#    image: mysql:5.7
+#    volumes:
+#      # pass volume named mysql-data to mysql container
+#      - ./mysql-data:/var/lib/mysql
+#    restart: unless-stopped
+#    labels:
+#      project: "poc-jasper"
+#      day: "14 Sep 2021"
+#    ports:
+#      - "3306:3306"
+#    environment:
+#      # credentials
+#      MYSQL_ROOT_PASSWORD: root
+#      MYSQL_DATABASE: mysql
+#      MYSQL_USER: root
+#      MYSQL_PASSWORD: root
+
+## volumes definition here
+#volumes:
+#  # just a persistance data
+#  mysql-data:
+#    driver: local
